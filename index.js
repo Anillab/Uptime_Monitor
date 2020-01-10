@@ -2,6 +2,8 @@
 
 var http=require('http');
 var url=require('url');
+var StringDecoder=require('string_decoder').StringDecoder;
+var config =require('./config');
 // server responds to requests with strings
 var server=http.createServer(function(req,res){
   // Get the url and parse it
