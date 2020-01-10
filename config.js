@@ -8,3 +8,10 @@ environments.staging={
   'port':3000,
   'envName':'staging'
 };
+
+// production environment
+environments.production = {
+  'port':5000,
+  'envName':'production'
+};
+
