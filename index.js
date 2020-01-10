@@ -65,3 +65,11 @@ server.listen(3000,function(){
 server.listen(config.port,function(){
   console.log('The server is listening on port '+ config.port+'in '+config.envName+'mode');
 });
+// define the handlers
+var handlers={};
+// sample handlers
+handlers.sample=function(data,callback){
+  // callback https status and payload object
+  callback(406,{'name':'sample handler'})
+
+};
