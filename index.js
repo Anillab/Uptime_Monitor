@@ -53,6 +53,9 @@ var server=http.createServer(function(req,res){
   // log the request path
   console.log('Request received with these headers:' ,headers )
 
+  console.log('Returning this response:' ,statusCode,payloadString )
+ });
+});
 });
 // start the server and have it listrn on port 3000
 server.listen(3000,function(){
