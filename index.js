@@ -73,3 +73,11 @@ handlers.sample=function(data,callback){
   callback(406,{'name':'sample handler'})
 
 };
+// not found handler
+handlers.notFound=function(data,callback){
+  callback(404)
+}
+// Define a request router
+var router ={
+  'sample':handlers.sample
+}
