@@ -17,6 +17,14 @@ var server=http.createServer(function(req,res){
    var method =req.method.toLowerCase();
    // Get the headers of the object
    var headers =req.headers;
+   // get the payloads
+   var decoder = new StringDecoder('utf-8')
+   var buffer ='';
+   req.on('data',function(data){
+     buffer +=decoder.write(data)
+   });
+   req.on('end',function(){
+     buffer +=decoder.end()
   // Send the response
   res.end('Hello World\n');
   // log the request path
