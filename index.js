@@ -49,18 +49,11 @@ var server=http.createServer(function(req,res){
 
 
   // Send the response
-  res.end('Hello World\n');
   // log the request path
-  console.log('Request received with these headers:' ,headers )
-
   console.log('Returning this response:' ,statusCode,payloadString )
  });
 });
 });
-// start the server and have it listrn on port 3000
-server.listen(3000,function(){
-  console.log('The server is listening on port 3000')
-})
 // start the server
 server.listen(config.port,function(){
   console.log('The server is listening on port '+ config.port+'in '+config.envName+'mode');
