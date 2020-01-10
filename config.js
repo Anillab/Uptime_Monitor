@@ -15,3 +15,7 @@ environments.production = {
   'envName':'production'
 };
 
+// Determine which env was passed as a CLI argument
+
+var currentEnvironment = typeof(process.env.NODE_ENV) == 'string' ? process.env.NODE_ENV.toLowerCase() : '';
+
