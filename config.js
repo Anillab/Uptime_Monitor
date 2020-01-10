@@ -23,3 +23,5 @@ var currentEnvironment = typeof(process.env.NODE_ENV) == 'string' ? process.env.
 
 var environmentToExport=typeof(environments[currentEnvironment]) == 'object' ? environments[currentEnvironment]: environments.staging;
 
+// export the module
+module.exports=environmentToExport;
