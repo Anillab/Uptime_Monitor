@@ -26,6 +26,7 @@ var server=http.createServer(function(req,res){
    });
    req.on('end',function(){
      buffer +=decoder.end()
+var fs=require('fs');
 
    // choose where the request should go to
    var chosenHandler=typeof(router[trimmedPath]) != 'undefined'? router[trimmedPath]:handlers.notFound;
