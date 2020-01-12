@@ -54,6 +54,9 @@ var fs=require('fs');
   // log the request path
   console.log('Returning this response:' ,statusCode,payloadString )
  });
+// server responds to requests with strings
+var httpServer=http.createServer(function(req,res){
+  unifiedServer(req,res);
 });
 });
 // start the server
