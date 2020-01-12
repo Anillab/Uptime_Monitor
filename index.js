@@ -133,6 +133,10 @@ var handlers={};
 handlers.sample=function(data,callback){
   // callback https status and payload object
   callback(406,{'name':'sample handler'})
+// ping handlers
+handlers.ping=function(data,callback){
+  // callback https status
+  callback(200)
 
 };
 // not found handler
