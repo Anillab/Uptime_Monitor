@@ -58,6 +58,9 @@ var fs=require('fs');
 var httpServer=http.createServer(function(req,res){
   unifiedServer(req,res);
 });
+// start the nttp server
+httpServer.listen(config.httpPort,function(){
+  console.log('The server is listening on port '+ config.httpPort);
 });
 // start the server
 server.listen(config.port,function(){
