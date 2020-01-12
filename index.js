@@ -65,6 +65,16 @@ httpServer.listen(config.httpPort,function(){
 // start the server
 server.listen(config.port,function(){
   console.log('The server is listening on port '+ config.port+'in '+config.envName+'mode');
+var httpsServerOptions={
+  'key': fs.readFileSync('./https/key.pem'),
+  'cert':fs.readFileSync('./https/cert.pem')
+}
+// instantiate the https server
+var httpsServer=https.createServer(httpsServerOptions,function(req,res){
+  unifiedServer(req,res);
+});
+httpsServer.listen(config.httpsPort,function(){
+  console.log('The server is listening on port '+ config.httpsPort);
 });
 // define the handlers
 var handlers={};
