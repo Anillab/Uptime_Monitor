@@ -146,4 +146,5 @@ handlers.notFound=function(data,callback){
 // Define a request router
 var router ={
   'sample':handlers.sample
+  'ping':handlers.ping
 }
