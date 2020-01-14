@@ -6,8 +6,8 @@ var url=require('url');
 var StringDecoder=require('string_decoder').StringDecoder;
 var config =require('./config');
 var fs=require('fs');
-
-
+var handlers=require('./lib/handlers');
+var helpers=require('./lib/helpers');
 // server responds to requests with strings
 var httpServer=http.createServer(function(req,res){
   unifiedServer(req,res);
@@ -56,8 +56,9 @@ var unifiedServer= function(req,res){
        'queryStringObject':queryStringObject,
        'method':method,
        'headers':headers,
-       'payload':buffer
+       'payload':helpers.parseJsonToObject(buffer)
      };
+     console.log(data);
      // Route the request to the handler specified by the router
      chosenHandler(data,function(statusCode,payload){
        // Use the status code called back by thr handler or default back to the object
@@ -65,7 +66,7 @@ var unifiedServer= function(req,res){
        payload = typeof(payload) == 'object' ? payload : {};
        // convert the payload into a string
        var payloadString=JSON.stringify(payload);
-       // Return the response
+       // Return the response && toSAgreement
        res.setHeader('Content_Type','application/json')
        res.writeHead(statusCode);
        res.end(payloadString)
@@ -79,19 +80,8 @@ var unifiedServer= function(req,res){
 
 };
 
-// define the handlers
-var handlers={};
-// ping handlers
-handlers.ping=function(data,callback){
-  // callback https status
-  callback(200)
-
-};
-// not found handler
-handlers.notFound=function(data,callback){
-  callback(404)
-}
 // Define a request router
 var router ={
-  'ping':handlers.ping
+  'ping':handlers.ping,
+  'users':handlers.users
 }
