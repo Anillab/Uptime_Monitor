@@ -7,6 +7,9 @@ var environments={};
 environments.staging={
   'httpPort':3000,
   'httpsPort':3001,
+  'envName':'staging',
+  'hashingSecret': 'ThisisASecret'
+
 };
 
 // production environment
